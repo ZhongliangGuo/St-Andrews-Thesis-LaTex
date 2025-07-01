@@ -1,0 +1,33 @@
+\chapter[Title in the table of content]{This is a very Long Title This is a very Long Title This is a very Long Title This is a very Long Title}\label{chap:ex}
+
+\section{Long Caption}
+Same as the float:
+\input{chap-example/float/example}
+
+\newpage
+\section{Math Formula \texorpdfstring{$\frac{1}{2} \alpha$}{1/2 alpha} Support in the Section Title}\label{math:in:title}
+\verb|\|texorpdfstring\{formula\}\{corresponding pure text\}
+
+\section{Citation}
+Only support something like Some researchers~\cite{ho2020ddpm} $\cdots$, do not support \verb|\|citeauthor or \verb|\|citeyear.
+
+\section{Draw Figures}
+You may need to have some figures in one pdf (for faster compile), here I provide a example how I make it in \boxed{chap-example/figs/draw-figure.tex}. Please note that, you may be unable to compile if you compile the thesis before, just clean the cache or recompile from scratch. Then download it and insert it in the thesis:
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\linewidth]{chap-example/figs/example-fig.pdf}
+    \caption[a figure]{long caption. long caption. long caption. long caption. long caption. long caption. long caption. long caption.}
+    \label{fig:eg}
+\end{figure}
+
+\subsection{Position of the figure}
+In line 17, you may notice the htbp. h=here, t=top, b=bottom, p=anywhere of the page. In some case ``h'' doesn't work, try only ``H''.
+
+\section{Useful Tools}
+\begin{itemize}
+    \item Table: \url{https://tablesgenerator.com/latex_tables}
+    \item Formula:
+    \url{https://www.latexlive.com/}
+    \item Crop pdf's blank border (Usually works for ppt made pdf): \url{https://croppdf.com/}
+\end{itemize}

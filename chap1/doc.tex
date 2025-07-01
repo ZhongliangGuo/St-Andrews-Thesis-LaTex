@@ -1,0 +1,45 @@
+\chapter{Introduction}
+This is a PhD/Master thesis template for the University of St Andrews, modified from the Lakshithade Silva's GitHub repository\footnote{\url{https://github.com/LakshithadeSilva/stacs-thesis}}. I solved some warnings in the original repo, and added some features and more \LaTeX usage examples. I will give the necessary explanation in the following sections.
+
+\section{Added Features \& Solved Warnings}
+\subsection{Flexible Title Page}
+When you declare the intention of submitting the thesis, the MySaint will automatically generate a title page pdf. Some people may want to use this pdf rather than the template in this \LaTeX project.
+
+The usage is simple:
+\begin{itemize}
+    \item If you want to use the pdf provided by MySaint:\\
+    replace the \boxed{prologue/pdfs/titlepage.pdf} to your own title page
+    \item If you want to use the tile page of \LaTeX:
+    Delete or comment the \textbf{line 111}\\
+    \verb|\| titlepagepdf\{prologue/pdfs/titlepage.pdf\} of \boxed{thesis.tex}
+\end{itemize}
+
+\subsection{Flexible Declaration}
+Same as the title page, MySaint also provides the declaration template. Please refer to the comments in \textbf{line 117-119} of \boxed{thesis.tex}.
+
+\subsection{Ethics Approval}
+These years the School of Computer Science tends to more stringent ethical assessment, even you only use the open-source dataset, you need to apply the ethical approval and attach it in the thesis. I added an example in the Appendix~\ref{app:c}.
+
+\subsection{In-Math Font}
+The in-math font of the original \LaTeX\ template looks a little bit weird for me, which does not align with the convention of AI conference, so I changed it somehow.
+
+\subsection{Box and Color of the Hyperlink}
+Same as the in-math font, I changed it.
+
+\subsection{Acronyms Warnings}
+The original \LaTeX\ template has some warnings about glossary/acronyms, it is fine to compile but annoying for me, so I correct them somehow.
+
+\section{More Examples of \LaTeX\  Usage}
+\subsection{Acronyms}
+You should define acronyms in the \boxed{prologue/glossarys.tex} first, then use it. Here are some usages:
+\begin{itemize}
+    \item When you first time call \verb|\|gls\{ai\}, it will appear: \gls{ai}, i.e., \hl{full and abbreviated}.
+    \item Same as the \verb|\|glspl\{ml\}: \glspl{ml}, ``pl'' refers to the plurality.
+    \item afterwards, when you call \verb|\|gls\{ai\}, it appears \gls{ai}. To make it \hl{full and abbreviated}, use \glsxtrfull{ai} or \glsxtrfullpl{ai}.
+\end{itemize}
+
+\subsection{Support of the Formula in Section Title}
+If I remember it correctly, this template does not support to have the math symbol in the section title, I solved it somehow. Please refer to Chapter~\ref{math:in:title}.
+
+\subsection{Solution for the Long Chapter Tile or Float Caption}
+Some chapter title is quite long and it's ugly in the table of content, please see the \boxed{chap-example/doc.tex} (Chapter~\ref{chap:ex}).

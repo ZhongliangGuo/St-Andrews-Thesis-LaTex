@@ -1,0 +1,181 @@
+\documentclass{stacsthesis}
+
+%
+% Packages
+%
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{soul}
+% if the \hl command does not work for a command, register it here
+\soulregister{\cite}{7}
+\soulregister{\ref}{7}
+\soulregister{\pageref}{7}
+\soulregister{\url}{7}
+\usepackage{color}
+\usepackage{tabulary}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage[nointegrals]{wasysym}
+\usepackage{syntax}
+\usepackage{textcomp}
+\usepackage[font=small,labelfont=bf,skip=16pt]{caption}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=black
+}
+
+\usepackage[toc,acronym,nonumberlist,nomain]{glossaries-extra}
+\setabbreviationstyle[acronym]{long-short}
+\usepackage{natbib}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{amsfonts,amssymb}
+\usepackage{silence}
+\usepackage{svg}
+\usepackage{tikz}
+% % the command can make \mathcal better
+\usepackage[cal=cm]{mathalpha}
+\WarningFilter{latexfont}{Font shape}
+% for those whole page pdf, use this line to make them have headers
+\includepdfset{pagecommand={\thispagestyle{stacs-pg}}}
+%
+% Compiler warnings
+%
+\hfuzz=10pt
+\vfuzz=10pt
+\hbadness=10000
+\vbadness=10000
+
+%
+% Configure caption and sub-caption styles
+%
+% \newsubfloat{figure}
+\captionnamefont{\bfseries\small}
+\captiontitlefont{\small}
+\subcaptionlabelfont{\bfseries\footnotesize}
+\subcaptionfont{\footnotesize}
+
+%
+% Customise titles names
+%
+\bibtitle{References}
+
+%
+% Customise toc
+%
+\maxtocdepth{subsection}
+
+%
+% Customise glossary
+%
+\renewcommand*{\glspostdescription}{}				% Remove dot at the end of glossary items
+\makeglossaries								% Generate glossary
+
+%
+% Chapter and page style
+%
+\chapterstyle{stacs-chap}
+\pagestyle{stacs-pg}
+
+%
+% Control word hyphenation
+%
+\hyphenpenalty=512
+\tolerance=1024
+\emergencystretch=4pt
+\hyphenation{
+	arti-ficial com-puter imple-ment imple-men-tation imple-men-ting frame-work
+	Java
+}
+
+%
+% Title page
+%
+\begin{document}
+\hypersetup{pageanchor=false}
+\title{Building Trustworthy Computer Vision: Adversarial Techniques for Robustness Assessment and Misuse Prevention}
+\author{\href{mailto:zg34@st-andrews.ac.uk}{Zhongliang Guo}}
+\degree{Doctor of Philosophy (PhD)}
+\submittextA{This thesis is submitted in partial fulfilment for the degree of}
+\submittextB{at the University of St Andrews}
+\submitdate{April 2025}
+
+
+% if call titlepagepdf, will ignore the above, this command is working for the titlepage pdf generated from MySaint.
+\titlepagepdf{prologue/pdfs/titlepage.pdf}
+\maketitle
+
+%
+% Prologue
+%
+% feel free to choose the declaration, I emailed the registry, both ways are fine, but personally I prefer to use the university provided word file, manually convert it to pdf.
+% \include{prologue/declaration}  % this allows you to sign the document by png inside of the latex
+\include{prologue/declaration-pdf}  % this require your supervisor and you to sign the pdf.
+\include{prologue/abstract}
+\include{prologue/acknowledgements}
+\include{prologue/glossary}
+
+%
+% Tables of contents/figures/tables and glossary
+%
+\cleardoublepage
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\tableofcontents
+\newpage\listoffigures
+\newpage\listoftables
+\printglossaries
+
+%
+% Mainmatter properties
+%
+\mainmatter
+\onehalfspacing
+\pagenumbering{arabic}
+\setlength{\parskip}{3mm}
+\setlength{\parindent}{0mm}
+\setlist[enumerate]{leftmargin=*,labelsep=0.8em,topsep=0em,parsep=0.6em}
+\setlist[itemize]{leftmargin=*,labelsep=1.0em,topsep=0em,parsep=0.6em,label=\normalsize\textbullet}
+\newenvironment{itemize*}			% Itemising environment for single-lined items
+	{\begin{itemize}					% Interline spacing has been adjusted in this case to
+    		\setlength{\itemsep}{0.016em}}	% make the itemised text look more consistent with the rest
+     	{\end{itemize}}
+
+%
+% Graphics directories
+%
+\graphicspath{
+	{chap1/}
+	{chap-example/}
+	{appA/}
+	{appB/}
+        {appC/}
+}
+
+%
+% Chapters
+%
+\include{chap1/doc}
+\include{chap-example/doc}
+
+%
+% Appendices
+%
+\appendix
+\include{appA/doc}
+\include{appB/doc}
+\include{appC/doc}
+%
+% Bibliography
+%
+\bibliographystyle{plain}
+\bibliography{thesis}
+
+\end{document}
