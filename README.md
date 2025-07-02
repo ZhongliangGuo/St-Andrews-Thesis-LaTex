@@ -1,5 +1,5 @@
 # St-Andrews-Thesis-LaTex
-Thesis template for the University of St Andrews in LaTex.
+LaTex thesis template for the University of St Andrews.
 
 Modefied from https://github.com/LakshithadeSilva/stacs-thesis
 
